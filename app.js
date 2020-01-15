@@ -23,7 +23,7 @@ $(function(){
     return randURL;
   }
 
-  $("#removeBtn").on("click", function(){
+  $("#removeBtn").on("click", function(e){ //added 'e' in parameter - SMT
     $("container").empty();
   });
   
