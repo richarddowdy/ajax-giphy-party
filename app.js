@@ -1,9 +1,10 @@
 $(function(){
 
-  $("#searchForm").on("submit", async function(e){
+  $("form").on("submit", async function(e){
     e.preventDefault();
     
     let searchItem = $("#searchItem").val();
+    $("#searchItem").val(""); // added empty string to make search field blank again - SMT
   
     let response = await axios.get("http://api.giphy.com/v1/gifs/search", { params: 
       {
@@ -20,10 +21,10 @@ $(function(){
     
     let $soloGif = $("<img>");
     $("container").append($soloGif.attr("src", randURL));
-    return randURL;
+
   }
 
-  $("#removeBtn").on("click", function(e){ //added 'e' in parameter - SMT
+  $("#removeBtn").on("click", function(e){
     $("container").empty();
   });
   
@@ -31,3 +32,4 @@ $(function(){
 })
 
 // let $soloGif = $("<img>", { src: randGif }); //another way to create element and set attr
+// let $soloGif = $(`<img src=${randURL}>`);
